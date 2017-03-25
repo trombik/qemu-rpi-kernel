@@ -6,6 +6,7 @@ required_tools = %w{
   gcc-arm-linux-gnueabihf
 }
 tool_chain = "arm-linux-gnueabihf"
+n_processor = `getconf _NPROCESSORS_ONLN`
 
 desc "install required tools"
 task :install_tools do
@@ -53,8 +54,8 @@ end
 desc "build kernel"
 task :build_kernel do
   Dir.chdir("linux") do
-    sh "make -j 4 -k ARCH=arm CROSS_COMPILE=#{ tool_chain }- menuconfig"
-    sh "make -j 4 -k ARCH=arm CROSS_COMPILE=#{ tool_chain }- bzImage"
+    sh "make -j #{ n_processor } -k ARCH=arm CROSS_COMPILE=#{ tool_chain }- menuconfig"
+    sh "make -j #{ n_processor } -k ARCH=arm CROSS_COMPILE=#{ tool_chain }- bzImage"
     sh "cp arch/arm/boot/zImage #{ root_dir }/kernel-qemu-`make kernelversion`"
   end
 end
