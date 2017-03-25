@@ -65,7 +65,7 @@ task :clean do
   Dir.chdir("linux") do
     sh "make clean"
     sh "git reset --hard HEAD^"
-    sh "rm #{ root_dir }/kernel-qemu-`make kernelversion`"
+    sh "rm -f #{ root_dir }/kernel-qemu-`make kernelversion`"
   end
   sh "rm -f linux/.config patch.rej"
 end
