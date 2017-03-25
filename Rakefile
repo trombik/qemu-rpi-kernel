@@ -2,8 +2,13 @@ require "pathname"
 
 root_dir = Pathname.new(__FILE__).dirname
 required_tools = %w{
-  libncurses5-dev
+  bc
+  exuberant-ctags
+  gcc
   gcc-arm-linux-gnueabihf
+  libncurses5-dev
+  libssl-dev
+  make
 }
 tool_chain = "arm-linux-gnueabihf"
 n_processor = `getconf _NPROCESSORS_ONLN`.chomp
