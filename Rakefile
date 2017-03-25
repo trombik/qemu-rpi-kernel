@@ -16,7 +16,7 @@ n_processor = `getconf _NPROCESSORS_ONLN`.chomp
 desc "install required tools"
 task :install_tools do
   required_tools.each do |r|
-    sh "dpkg -s #{ r }" do |ok, status|
+    sh "dpkg -s #{ r } >/dev/null" do |ok, status|
       if !ok
         sh "apt-get install #{ r }"
       end
