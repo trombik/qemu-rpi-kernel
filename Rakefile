@@ -71,4 +71,4 @@ task :clean do
 end
 
 desc "run the build"
-task :build => [ :install_tools, :update, :patch, :make_versatile_defconfig, :config, :build_kernel ]
+task :build => [ :install_tools, :patch, :make_versatile_defconfig, :config, :build_kernel ]
