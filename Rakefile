@@ -6,7 +6,7 @@ required_tools = %w{
   gcc-arm-linux-gnueabihf
 }
 tool_chain = "arm-linux-gnueabihf"
-n_processor = `getconf _NPROCESSORS_ONLN`
+n_processor = `getconf _NPROCESSORS_ONLN`.chomp
 
 desc "install required tools"
 task :install_tools do
