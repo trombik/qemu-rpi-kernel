@@ -1,3 +1,5 @@
 /.bundle/
 /vendor/
 /patch.rej
+/images/*.img
+/images/*.zip

@@ -1,0 +1,12 @@
+--- /usr/bin/raspi-config.orig	2017-04-12 03:33:24.264195000 +0000
++++ /usr/bin/raspi-config	2017-04-12 03:37:25.394195000 +0000
+@@ -131,7 +131,7 @@
+ 
+ do_expand_rootfs() {
+   get_init_sys
+-  if [ $SYSTEMD -eq 1 ]; then
++  if [ $SYSTEMD -eq 255 ]; then
+     ROOT_PART=$(mount | sed -n 's|^/dev/\(.*\) on / .*|\1|p')
+   else
+     if ! [ -h /dev/root ]; then
+
